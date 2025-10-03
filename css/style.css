@@ -96,7 +96,8 @@ nav ul li a:hover{
    border-radius: 10px;
 }
 
-.go{width: 240px; height: 40px; background: #000; border-radius: 20px; color: #fff; float: right; left: 50%; transform: translate(-200%);}
+
+.go{width: 120px; height: 40px; background: #000; border-radius: 20px; color: #fff;}
 .go:hover{
     background: #283795; 
     box-shadow: 0 0 2px 2px #ffffff, 0 0 4px 4px #0022ff, 0 0 6px 6px #0022ff, 0 0  8px 8px #ffffff;
@@ -121,11 +122,9 @@ nav ul li a:hover{
     font-family: "GmarketSansBold", sans-serif;
     font-weight: 400;
     font-style: normal;
-    width: 100%;
-    border-bottom: 1px solid #000;
 }
 
-.wrapper p{margin-top: 3rem; text-align: center;}
+.wrapper p{margin-top: 3rem;}
 
 header{
     background-image: linear-gradient(to left, var(--black-op) 30%, var(--green));
@@ -492,10 +491,11 @@ header a{
 
 
 .fade{margin: 0 auto; position: absolute; opacity: 1; width: 100%; height: 10rem; z-index: 1; color: #fff;}
-.fade-r{position: relative; border-radius: 20px 20px 0 0; border: 1px solid #fff;}
+
 .info{transition: 0.5s;}
 .fade ul{transition: 0.5s; height: 30px; width: 100%;}
-.fade ul>li{opacity: 0; font-size: 1rem; color: #fff; z-index: 2; height: 1.2rem; line-height: 1.2rem; width: 100%;} 
+.accordion li:hover{transform: translateY(-30px);}
+.fade ul>li{opacity: 0; font-size: 1rem; color: #fff; z-index: 2; height: 1.2rem; line-height: 1.2rem; width: 80%;} 
 .accordion li:hover .fade ul li{opacity: 1;transform: translateY(-30px);}
 .accordion li:hover .fade ul{border-left: 1px solid #dddddd; transition: 0.5s; transform: translateY(-30px); opacity: 1; height: 7rem;}
 .accordion li:hover .info p{opacity: 0; transform: translateY(-30px);}
@@ -534,67 +534,70 @@ header a{
 
   .aimg{position: absolute; width: 200px; height: 60%;}
   .aimg img{object-fit: cover;}
-.accordion li:nth-child(1)::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 30%; 
-  background:
-    linear-gradient(to top, 
-      rgba(0,0,0,0) 0%, 
-      rgba(0,0,0,0.7) 40%, 
-      rgba(0,0,0,1) 100%),
-    url('../img/sec2_img_3.jpg') center bottom/cover no-repeat;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
-  z-index: 999;
-}
 
-
-.accordion li:nth-child(2)::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 30%;
-  background:
-    linear-gradient(to top, 
-      rgba(0,0,0,0) 0%, 
-      rgba(0,0,0,0.7) 40%, 
-      rgba(0,0,0,1) 100%),
-    url('../img/computer.jpg') center bottom/cover no-repeat;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
-  z-index: 120;
+.accordion li::after {
+    content: "";
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    height: 30%; /* 이미지 영역 높이 */
+    background:
+        linear-gradient(to top, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.7) 40%, 
+            rgba(0,0,0,1) 100%); 
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+    z-index: 999;
 }
 
 
 
-
-.accordion li:nth-child(3)::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 30%;
-  background:
-    linear-gradient(to top, 
-      rgba(0,0,0,0) 0%, 
-      rgba(0,0,0,0.7) 40%, 
-      rgba(0,0,0,1) 100%),
-    url('../img/aboutBg_2.jpg') center bottom/cover no-repeat;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
-  z-index: 120;
+.accordion-li:nth-child(1) li::after {
+    background-image:
+        linear-gradient(to top, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.7) 40%, 
+            rgba(0,0,0,1) 100%),
+        url('../img/sec2_img_3.jpg');
 }
 
-  .accordion li:hover{transform:  translateY(-30px); background: linear-gradient(to bottom #000 40%, transparent 100%);}
 
-  .accordion li:hover::after{
+.accordion-li:nth-child(2) li::after {
+    background-image:
+        linear-gradient(to top, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.7) 40%, 
+            rgba(0,0,0,1) 100%),
+        url('../img/computer.jpg');
+}
+
+
+
+.accordion-li:nth-child(3) li::after {
+    background-image:
+        linear-gradient(to top, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.7) 40%, 
+            rgba(0,0,0,1) 100%),
+        url('../img/aboutBg_2.jpg'); 
+}
+
+
+.accordion li:hover::after{
     opacity: 1;
-  }
-  
+}
+
+
+.accordion-li li::after li:hover {
+
+        opacity: 0;
+}
 
 
 
@@ -634,12 +637,11 @@ header a{
 .video{
     width: 60%;
     flex: 4;
-    
 }
 
 .video ul{display: flex; margin: 0 auto;}
 
-.video ul li{margin-left: -1rem;}
+.video ul li{ margin-right: 1rem;}
 
 .video p{font-size: 1rem; padding-bottom: 1rem;}
 
